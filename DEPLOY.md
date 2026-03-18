@@ -98,7 +98,7 @@ surge
 ### ✅ **Antes de Publicar**
 
 1. **Atualizar Contatos**
-   - Telefone: `+5511999999999` → Seu número real
+   - Telefone: `+5591981783159` → Seu número real
    - WhatsApp: Link wa.me/ com seu número
    - Instagram: `@democratapub` → Seu perfil real
    - iFood: Link direto para sua loja

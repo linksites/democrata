@@ -71,9 +71,9 @@ Site moderno e completo para barbearia/pub com integrações totais:
 # firebase deploy
 ```
 
-### 📞 **Contato Integrado**
-- **Telefone**: `tel:+5511999999999`
-- **WhatsApp**: `https://wa.me/5511999999999`
+### 📞 **Atualizar Contatos**
+- **Telefone**: `+5591981783159` → Seu número real
+- **WhatsApp**: Link wa.me/5591981783159 com seu número/5591981783159`
 - **iFood**: Link direto para pedidos
 - **Instagram**: `@democratapub`
 

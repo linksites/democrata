@@ -73,7 +73,7 @@ animateOnScroll(); // Initial check
 // WHATSAPP SHARE FUNCTION
 function shareOnWhatsApp(message) {
     const text = encodeURIComponent(message);
-    const url = `https://wa.me/5511999999999?text=${text}`;
+    const url = `https://wa.me/5591981783159?text=${text}`;
     window.open(url, '_blank', 'noopener,noreferrer');
 }
 
@@ -84,7 +84,7 @@ function redirectToIFood() {
 
 // PHONE CALL
 function makePhoneCall() {
-    window.location.href = 'tel:+5511999999999';
+    window.location.href = 'tel:+5591981783159';
 }
 
 // GALLERY LIGHTBOX
