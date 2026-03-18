@@ -27,6 +27,8 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -37,7 +39,9 @@ body {
     radial-gradient(circle at top left, rgba(255, 91, 61, 0.18), transparent 34%),
     radial-gradient(circle at 85% 15%, rgba(240, 162, 58, 0.12), transparent 30%),
     linear-gradient(180deg, #1d1211 0%, #100b0b 35%, #090506 100%);
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body::before {
@@ -76,6 +80,9 @@ button {
 .site-shell {
   position: relative;
   isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .site-header {
@@ -154,6 +161,12 @@ button {
 .footer-logo {
   width: 148px;
   filter: drop-shadow(0 0 20px rgba(245, 207, 119, 0.18));
+}
+
+.hero-brandmark {
+  width: clamp(220px, 34vw, 380px);
+  margin: 0 0 18px;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.34)) drop-shadow(0 0 26px rgba(245, 207, 119, 0.18));
 }
 
 .main-nav {
@@ -1326,7 +1339,28 @@ section {
 }
 
 @media (max-width: 860px) {
-  .announcement-bar,
+  html,
+  body {
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .site-shell,
+  main,
+  section,
+  .container,
+  .hero,
+  .hero-grid,
+  .hero-media,
+  .experience-media,
+  .gallery-grid,
+  .schedule-grid {
+    max-width: 100%;
+  }
+
   .announcement-bar {
     display: none;
   }
@@ -1393,6 +1427,10 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
     transition: max-height 260ms ease, opacity 220ms ease, padding 220ms ease, margin-top 220ms ease;
+  }
+
+  .floating-dock {
+    max-width: calc(100% - 24px);
   }
 
   .site-header.menu-open .main-nav {
@@ -1462,6 +1500,10 @@ section {
 }
 
 @media (max-width: 560px) {
+  .container {
+    width: min(calc(100% - 20px), var(--container));
+  }
+
   .nav-wrap {
     gap: 8px;
     width: min(calc(100% - 20px), var(--container));
@@ -1483,6 +1525,11 @@ section {
   .brand-wordmark,
   .footer-logo {
     width: 92px;
+  }
+
+  .hero-brandmark {
+    width: min(260px, 72vw);
+    margin-bottom: 16px;
   }
 
   .header-cta {
@@ -1532,6 +1579,13 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .hero-proof,
+  .cta-support,
+  .hot-actions,
+  .footer-links {
+    gap: 10px;
+  }
+
   .btn,
   .metric-card {
     width: 100%;
@@ -1564,6 +1618,10 @@ section {
 
   .brand-wordmark {
     width: 78px;
+  }
+
+  .hero-brandmark {
+    width: min(220px, 74vw);
   }
 
   .header-cta {
