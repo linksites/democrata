@@ -1,0 +1,55 @@
+#!/bin/bash
+# ============================================
+# ALIASES ÚTEIS - DEMOCRATA BARBearia & Pub
+# Git Bash Configuration
+# ============================================
+
+# Aliases Git
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git pull'
+alias gco='git checkout'
+alias gb='git branch'
+alias gd='git diff'
+alias glog='git log --oneline --graph --decorate'
+
+# Aliases Navegação
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='ls -la'
+alias l='ls -CF'
+alias cl='clear'
+
+# Aliases Projeto Democrata
+alias demo='cd /c/Projeto/democrata'
+alias demodeploy='cd /c/Projeto/democrata && git add . && git commit -m "update" && git push'
+alias demostatus='cd /c/Projeto/democrata && git status'
+alias demolog='cd /c/Projeto/democrata && git log --oneline -10'
+
+# Aliases Úteis
+alias reload='source ~/.bashrc'
+alias bashconfig='code ~/.bashrc'
+alias gitconfig='git config --list'
+
+# Função para deploy rápido
+function deploy() {
+    if [ -z "$1" ]; then
+        msg="update"
+    else
+        msg="$1"
+    fi
+    git add . && git commit -m "$msg" && git push
+}
+
+# Função para criar novo projeto
+function newproject() {
+    mkdir -p "$1" && cd "$1" && git init
+}
+
+# Mensagem de boas-vindas
+echo "🎩 Git Bash configurado para Democrata!"
+echo "Aliases disponíveis: gs, ga, gc, gp, gl, demo, deploy"
+echo ""
