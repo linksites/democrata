@@ -1563,9 +1563,9 @@ section {
   }
 
   .menu-toggle {
-    width: 38px;
-    height: 38px;
-    border-radius: 13px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
   }
 
   .main-nav {
@@ -1574,25 +1574,25 @@ section {
   }
 
   .menu-toggle span {
-    left: 10px;
-    right: 10px;
+    left: 11px;
+    right: 11px;
   }
 
   .menu-toggle span:nth-child(1) {
-    top: 13px;
+    top: 14px;
   }
 
   .menu-toggle span:nth-child(2) {
-    top: 18px;
+    top: 20px;
   }
 
   .menu-toggle span:nth-child(3) {
-    top: 23px;
+    top: 26px;
   }
 
   .site-header.menu-open .menu-toggle span:nth-child(1),
   .site-header.menu-open .menu-toggle span:nth-child(3) {
-    top: 18px;
+    top: 20px;
   }
 
   .hero {
@@ -1709,30 +1709,8 @@ section {
   }
 
   .menu-toggle {
-    width: 34px;
-    height: 34px;
-  }
-
-  .menu-toggle span {
-    left: 8px;
-    right: 8px;
-  }
-
-  .menu-toggle span:nth-child(1) {
-    top: 11px;
-  }
-
-  .menu-toggle span:nth-child(2) {
-    top: 16px;
-  }
-
-  .menu-toggle span:nth-child(3) {
-    top: 21px;
-  }
-
-  .site-header.menu-open .menu-toggle span:nth-child(1),
-  .site-header.menu-open .menu-toggle span:nth-child(3) {
-    top: 16px;
+    width: 40px;
+    height: 40px;
   }
 }
 
