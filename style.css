@@ -164,7 +164,7 @@ button {
 }
 
 .hero-brandmark {
-  width: clamp(220px, 34vw, 380px);
+  width: clamp(250px, 38vw, 430px);
   margin: 0 0 10px;
   filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.34)) drop-shadow(0 0 26px rgba(245, 207, 119, 0.18));
 }
@@ -1528,7 +1528,7 @@ section {
   }
 
   .hero-brandmark {
-    width: min(260px, 72vw);
+    width: min(290px, 78vw);
     margin-bottom: 8px;
   }
 
@@ -1621,7 +1621,7 @@ section {
   }
 
   .hero-brandmark {
-    width: min(220px, 74vw);
+    width: min(250px, 80vw);
     margin-bottom: 6px;
   }
 
