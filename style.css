@@ -443,6 +443,30 @@ button {
   margin-top: 28px;
 }
 
+.cta-support {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.cta-support span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-soft);
+  font-size: 0.9rem;
+}
+
+.cta-support span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red-bright), var(--gold));
+  box-shadow: 0 0 12px rgba(245, 207, 119, 0.3);
+}
+
 .order-note {
   max-width: 56ch;
   margin: 16px 0 0;
@@ -965,9 +989,46 @@ section {
 
 .contact-links a.is-primary {
   background:
-    radial-gradient(circle at top right, rgba(245, 207, 119, 0.18), transparent 38%),
-    linear-gradient(135deg, rgba(255, 91, 61, 0.16), rgba(255, 255, 255, 0.06));
-  border-color: rgba(245, 207, 119, 0.24);
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(255, 166, 146, 0.18), transparent 38%),
+    linear-gradient(135deg, #ff5b3d 0%, #d83a2d 45%, #a91d1d 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 24px 56px rgba(169, 29, 29, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: ifoodPulse 4.2s ease-in-out infinite;
+}
+
+.contact-links a.is-primary::before {
+  opacity: 1;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.22), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 42%, rgba(255, 255, 255, 0.08));
+}
+
+.contact-links a.is-primary::after {
+  content: "";
+  position: absolute;
+  top: -18%;
+  left: -38%;
+  width: 34%;
+  height: 150%;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: rotate(18deg);
+  animation: primaryCardShine 6.5s linear infinite;
+  pointer-events: none;
+}
+
+.contact-links a.is-primary strong,
+.contact-links a.is-primary span {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.contact-links a.is-primary strong {
+  font-size: 1.2rem;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
 }
 
 .contact-preference {
@@ -983,6 +1044,14 @@ section {
   text-transform: uppercase;
   color: var(--bg-strong);
   background: linear-gradient(135deg, var(--gold), #fff0bb);
+}
+
+.contact-links a.is-primary .contact-preference {
+  position: relative;
+  z-index: 1;
+  color: #9f1717;
+  background: linear-gradient(135deg, #ffffff, #ffe2d8);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
 }
 
 .site-footer {
@@ -1131,6 +1200,32 @@ section {
 
   50% {
     transform: translateX(-50%) translateY(-4px);
+  }
+}
+
+@keyframes ifoodPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 24px 56px rgba(169, 29, 29, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 32px 74px rgba(169, 29, 29, 0.46),
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+}
+
+@keyframes primaryCardShine {
+  from {
+    transform: translateX(0) rotate(18deg);
+  }
+
+  to {
+    transform: translateX(360%) rotate(18deg);
   }
 }
 
