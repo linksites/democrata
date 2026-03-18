@@ -1,338 +1,352 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Democrata Barbearia & Pub</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="cardapio-styles.css">
-<link rel="stylesheet" href="logo-styles.css">
-<link rel="stylesheet" href="premium-styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Democrata | Burger, Pub e Barbearia</title>
+  <meta name="description" content="Uma noite completa na Democrata: burger artesanal, pub e barbearia em um so lugar. Peca no iFood, fale no WhatsApp ou agende seu corte.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="site-shell">
+    <header class="site-header" id="siteHeader">
+      <div class="announcement-bar">
+        <span>Ter a dom | 18h as 23h</span>
+        <span>Burger quente, pub vivo e atendimento rapido</span>
+      </div>
 
-<!-- LOADING SCREEN PREMIUM -->
-<div class="loading-screen" id="loadingScreen">
-  <img src="assets/logo/logo-perfil.jpg" alt="Democrata" class="loading-logo">
-  <div class="loading-bar">
-    <div class="loading-progress"></div>
+      <div class="nav-wrap">
+        <a href="#inicio" class="brand" aria-label="Ir para o inicio">
+          <img src="assets/logo/logo-perfil.jpg" alt="Logo Democrata" class="brand-mark">
+          <img src="assets/logo/nome-democrata.png" alt="Democrata" class="brand-wordmark">
+        </a>
+
+        <nav class="main-nav" aria-label="Navegacao principal">
+          <a href="#sabores">Sabores</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#horarios">Horarios</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="header-cta">
+          Pedir agora
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy" data-reveal="up">
+            <div class="eyebrow-group">
+              <span class="eyebrow">Noite urbana premium</span>
+              <span class="eyebrow">Barbearia + pub + burger</span>
+            </div>
+
+            <h1>
+              O burger que faz a fome
+              <span>chegar antes do pedido.</span>
+            </h1>
+
+            <p class="hero-lead">
+              Crosta tostada, queijo no ponto, bacon caramelizado e aquele clima
+              de pub que transforma uma visita comum em ritual de fim de noite.
+            </p>
+
+            <div class="hero-proof">
+              <div class="proof-pill">Feito na hora</div>
+              <div class="proof-pill">Entrega e retirada</div>
+              <div class="proof-pill">Atendimento no WhatsApp</div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn btn-primary">
+                Pedir no iFood
+              </a>
+              <a href="https://wa.me/5591981783159" target="_blank" rel="noopener" class="btn btn-secondary">
+                Chamar no WhatsApp
+              </a>
+              <a href="tel:+5591981783159" class="btn btn-ghost">
+                Agendar corte
+              </a>
+            </div>
+
+            <div class="hero-metrics">
+              <article class="metric-card">
+                <strong>160g</strong>
+                <span>mistura de carnes</span>
+              </article>
+              <article class="metric-card">
+                <strong>18h-23h</strong>
+                <span>janela de maior fome</span>
+              </article>
+              <article class="metric-card">
+                <strong>1 lugar</strong>
+                <span>burger, pub e barbearia</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-media" data-reveal="left">
+            <div class="hero-frame" id="heroFrame">
+              <img src="assets/menu/burger-destaque.jpg" alt="Burger Democrata em destaque" class="hero-burger">
+              <div class="floating-note note-top">Queijo derretido</div>
+              <div class="floating-note note-middle">Bacon caramelizado</div>
+              <div class="floating-note note-bottom">Crosta intensa</div>
+            </div>
+
+            <div class="hero-sidecards">
+              <article class="side-card warmth">
+                <span class="side-label">Sensacao imediata</span>
+                <h2>Visual quente, contraste forte e desejo rapido.</h2>
+              </article>
+              <article class="side-card contrast">
+                <span class="side-label">Escolha facil</span>
+                <p>Menus curtos e destaques claros ajudam a decidir mais rapido e pedir com mais vontade.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="crave-section">
+        <div class="container">
+          <div class="section-head" data-reveal="up">
+            <span class="section-kicker">Por que da vontade</span>
+            <h2>Desenho pensado para abrir apetite em segundos</h2>
+            <p>
+              Fotos fechadas, cores quentes, prova social visual e descricoes sensoriais
+              deixam a decisao mais simples e o desejo mais imediato.
+            </p>
+          </div>
+
+          <div class="crave-grid">
+            <article class="crave-card" data-reveal="up">
+              <span class="card-index">01</span>
+              <h3>Textura que quase da para ouvir</h3>
+              <p>Crocancia, brilho e contraste fazem o cerebro imaginar a primeira mordida antes do clique.</p>
+            </article>
+            <article class="crave-card" data-reveal="up">
+              <span class="card-index">02</span>
+              <h3>Calor visual que acelera a decisao</h3>
+              <p>Vermelho, cobre e dourado aumentam a energia da tela e puxam o olhar direto para o pedido.</p>
+            </article>
+            <article class="crave-card" data-reveal="up">
+              <span class="card-index">03</span>
+              <h3>Menos duvida, mais vontade</h3>
+              <p>Destaques enxutos e CTAs grandes reduzem atrito e deixam a compra parecer natural.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" id="sabores">
+        <div class="container">
+          <div class="section-head section-head-left" data-reveal="up">
+            <span class="section-kicker">Mais desejados</span>
+            <h2>Sabores que seguram o olhar e puxam o pedido</h2>
+            <p>
+              Os destaques abaixo usam descricoes curtas, contraste alto e leitura rapida
+              para deixar o desejo acima da dobra da decisao.
+            </p>
+          </div>
+
+          <div class="menu-grid">
+            <article class="menu-card menu-card-photo" data-reveal="up">
+              <img src="assets/menu/burger-destaque.jpg" alt="Democrata Classico" class="menu-photo">
+              <div class="menu-body">
+                <span class="menu-tag">Mais pedido</span>
+                <h3>Democrata Classico</h3>
+                <p>Mistura de carnes 160g, cheddar, alface, tomate, cebola caramelizada e molho da casa.</p>
+                <div class="menu-footer">
+                  <strong>R$ 28,00</strong>
+                  <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">Pedir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card menu-card-photo" data-reveal="up">
+              <img src="assets/menu/burger-artesanal.jpg" alt="Burger Democrata" class="menu-photo">
+              <div class="menu-body">
+                <span class="menu-tag menu-tag-alt">Mais intenso</span>
+                <h3>Burger Democrata</h3>
+                <p>Pao artesanal, mistura de carnes 160g, cheddar e bacon caramelizado para uma mordida mais marcante.</p>
+                <div class="menu-footer">
+                  <strong>R$ 32,00</strong>
+                  <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">Pedir</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card menu-card-text" data-reveal="up">
+              <span class="menu-badge">Combo</span>
+              <h3>Combo Duplo</h3>
+              <p>Dois burgers, batata grande e dois refrigerantes para dividir sem perder o ritmo da noite.</p>
+              <ul class="flavor-points">
+                <li>Decisao rapida para duas pessoas</li>
+                <li>Maior ticket com sensacao de vantagem</li>
+                <li>Ideal para pedir sem pensar muito</li>
+              </ul>
+              <div class="menu-footer">
+                <strong>R$ 58,00</strong>
+                <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">Quero esse</a>
+              </div>
+            </article>
+
+            <article class="menu-card menu-card-text hot-card" data-reveal="up">
+              <span class="menu-badge">Noite completa</span>
+              <h3>Pub, burger e barbearia no mesmo roteiro</h3>
+              <p>Quem chega pelo burger fica pelo clima. Quem vem pelo corte encontra um lugar que continua interessante depois.</p>
+              <div class="hot-actions">
+                <a href="https://www.instagram.com/democratabarber?igsh=b2R2dnNhOXFhMHFt" target="_blank" rel="noopener" class="inline-link">Ver Instagram</a>
+                <a href="tel:+5591981783159" class="inline-link">Ligar agora</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section" id="experiencia">
+        <div class="container experience-grid">
+          <div class="experience-copy" data-reveal="right">
+            <span class="section-kicker">A atmosfera da casa</span>
+            <h2>Uma marca que nao vende so comida. Vende clima.</h2>
+            <p>
+              A Democrata funciona melhor quando o site mostra uma experiencia completa:
+              burger artesanal, pub com energia noturna e barbearia com personalidade.
+            </p>
+            <div class="experience-list">
+              <article>
+                <strong>Barbearia premium</strong>
+                <span>Corte, estilo e ambiente que convida a ficar.</span>
+              </article>
+              <article>
+                <strong>Pub com ritmo</strong>
+                <span>Um lugar para conversar, esperar o pedido e voltar depois.</span>
+              </article>
+              <article>
+                <strong>Food truck forte</strong>
+                <span>Imagem, cheiro imaginado e desejo rapido na tela.</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="experience-media" data-reveal="left">
+            <figure class="experience-shot tall">
+              <img src="assets/gallery/edisonlima.jpg" alt="Ambiente da Democrata">
+            </figure>
+            <figure class="experience-shot short">
+              <img src="assets/gallery/barbearia-interior.jpg" alt="Interior da Democrata">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section" id="galeria">
+        <div class="container">
+          <div class="section-head" data-reveal="up">
+            <span class="section-kicker">Galeria</span>
+            <h2>Close certo, luz quente e ambiente que segura o olhar</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <button class="gallery-card wide" data-image="assets/hero/hero-bg.jpg" data-title="Hero Democrata" data-reveal="up">
+              <img src="assets/hero/hero-bg.jpg" alt="Burger com batata e refrigerante">
+              <span>Chapa quente e contraste alto</span>
+            </button>
+            <button class="gallery-card" data-image="assets/menu/burger-destaque.jpg" data-title="Democrata Classico" data-reveal="up">
+              <img src="assets/menu/burger-destaque.jpg" alt="Burger em destaque">
+              <span>Foco total na mordida</span>
+            </button>
+            <button class="gallery-card" data-image="assets/gallery/edisonlima.jpg" data-title="Ambiente Democrata" data-reveal="up">
+              <img src="assets/gallery/edisonlima.jpg" alt="Ambiente da Democrata">
+              <span>Marca com presenca</span>
+            </button>
+            <button class="gallery-card" data-image="assets/menu/food-truck-horarios.jpg" data-title="Food Truck" data-reveal="up">
+              <img src="assets/menu/food-truck-horarios.jpg" alt="Food truck e horarios">
+              <span>Pedido facil, leitura rapida</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="schedule-section" id="horarios">
+        <div class="container schedule-grid">
+          <article class="schedule-panel" data-reveal="up">
+            <span class="section-kicker">Horarios</span>
+            <h2>Quando a Democrata entra no ponto certo</h2>
+            <div class="schedule-list">
+              <div>
+                <strong>Barbearia</strong>
+                <p>Seg e ter: 09h as 20h</p>
+                <p>Qua a sex: 09h as 21h</p>
+                <p>Sab: 09h as 20h</p>
+              </div>
+              <div>
+                <strong>Food truck e pub</strong>
+                <p>Ter a dom: 18h as 23h</p>
+                <p>Seg: fechado</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="contact-panel" id="contato" data-reveal="up">
+            <span class="section-kicker">Contato rapido</span>
+            <h2>Escolha o caminho mais curto para matar a vontade</h2>
+            <div class="contact-links">
+              <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">
+                <strong>iFood</strong>
+                <span>Pedir sem sair do fluxo</span>
+              </a>
+              <a href="https://wa.me/5591981783159" target="_blank" rel="noopener">
+                <strong>WhatsApp</strong>
+                <span>Falar direto com a casa</span>
+              </a>
+              <a href="tel:+5591981783159">
+                <strong>Telefone</strong>
+                <span>(91) 98178-3159</span>
+              </a>
+              <a href="https://www.instagram.com/democratabarber?igsh=b2R2dnNhOXFhMHFt" target="_blank" rel="noopener">
+                <strong>Instagram</strong>
+                <span>@democratabarber</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>
+          <img src="assets/logo/nome-democrata.png" alt="Democrata" class="footer-logo">
+          <p>Burger, pub e barbearia com clima noturno e apetite alto.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">iFood</a>
+          <a href="https://wa.me/5591981783159" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="tel:+5591981783159">Telefone</a>
+          <a href="https://www.instagram.com/democratabarber?igsh=b2R2dnNhOXFhMHFt" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </footer>
   </div>
-</div>
 
-<!-- CURSOR PERSONALIZADO -->
-<div class="custom-cursor" id="customCursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="overlay">
-    <img src="assets/logo/logo-perfil.jpg" alt="Democrata Logo" class="hero-logo">
-    <img src="assets/logo/nome-democrata.png" alt="DEMOCRATA" class="hero-title">
-    <p>Barbearia • Pub • Gastronomia</p>
-    <div class="hero-actions">
-      <a href="tel:+5591981783159" class="btn-primary">📞 LIGAR AGORA</a>
-      <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-secondary">🍔 PEDIR NO IFOOD</a>
-    </div>
+  <div class="floating-dock">
+    <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="dock-btn dock-btn-primary">Pedir no iFood</a>
+    <a href="https://wa.me/5591981783159" target="_blank" rel="noopener" class="dock-btn dock-btn-secondary">WhatsApp</a>
   </div>
-</section>
 
-<nav class="nav">
-  <a href="#barbearia">💈 Barbearia</a>
-  <a href="#foodtruck">🍔 Caminhão de Comida</a>
-  <a href="#galeria">📸 Galeria</a>
-  <a href="#horarios">⏰ Horários</a>
-  <a href="#contato">📱 Contato</a>
-</nav>
-
-<section id="barbearia" class="barbearia">
-  <div class="container">
-    <h2>💈 Barbearia Premium</h2>
-    <div class="barbearia-content">
-      <div class="barbearia-text">
-        <p>Experiência única com:</p>
-        <ul>
-          <li>🎱 Sinuca profissional</li>
-          <li>🎮 PlayStation 5</li>
-          <li>� Pub com cervejas especiais</li>
-          <li>✂️ Cortes de cabelo premium</li>
-        </ul>
-        <a href="tel:+5591981783159" class="btn-agendar">AGENDAR CORTE</a>
-      </div>
-      <div class="barbearia-gallery">
-        <img src="assets/gallery/barbearia-fachada.jpg" alt="Ambiente Barbearia">
-      </div>
-    </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar imagem">+</button>
+    <img src="" alt="" class="lightbox-image" id="lightboxImage">
   </div>
-</section>
 
-<section id="foodtruck" class="foodtruck">
-  <div class="container">
-    <h2>🍔 Caminhão de Comida</h2>
-    <div class="foodtruck-content">
-      <div class="foodtruck-text">
-        <p>Hambúrguer artesanal com ingredientes selecionados</p>
-        <div class="menu-destaque">
-          <img src="assets/menu/burger-artesanal.jpg" alt="Burger Artesanal">
-          <h3>Burger Democrata</h3>
-          <p>Pão artesanal, mistura de carnes 160g, queijo cheddar, bacon caramelizado</p>
-        </div>
-        <div class="pedidos-actions">
-          <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-ifood">🛒 PEDIR NO IFOOD</a>
-          <a href="tel:+5591981783159" class="btn-phone">📞 FAZER PEDIDO</a>
-        </div>
-      </div>
-      <div class="foodtruck-image">
-        <img src="assets/menu/food-truck-horarios.jpg" alt="Caminhão de Comida">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cardapio" class="cardapio">
-  <div class="container">
-    <h2>🍔 Cardápio</h2>
-    <div class="ifood-badge">
-      <span>⭐ 5.0 no iFood</span>
-    </div>
-    
-    <div class="cardapio-tabs">
-      <button class="tab-btn active" data-tab="hamburgueres">🍔 Hamburgueres</button>
-      <button class="tab-btn" data-tab="porcoes">🍟 Porções</button>
-      <button class="tab-btn" data-tab="combos">🎯 Combos</button>
-      <button class="tab-btn" data-tab="bebidas">🥤 Bebidas</button>
-    </div>
-    
-    <div class="cardapio-content">
-      <!-- Hamburgueres -->
-      <div id="hamburgueres" class="tab-content active">
-        <div class="cardapio-grid">
-          <div class="item-card">
-            <img src="assets/menu/burger-destaque.jpg" alt="Democrata Clássico">
-            <h3>Democrata Clássico</h3>
-            <p>Mistura de carnes 160g, queijo cheddar, alface, tomate, cebola caramelizada, molho especial</p>
-            <span class="preco">R$ 28,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🥓</div>
-            <h3>Bacon Supreme</h3>
-            <p>Mistura de carnes 180g, bacon crocante, cheddar, cebola crispy, barbecue</p>
-            <span class="preco">R$ 32,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🍔</div>
-            <h3>Duplo Smash</h3>
-            <p>2x mistura de carnes 100g, queijo duplo, picles, molho especial</p>
-            <span class="preco">R$ 35,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🌱</div>
-            <h3>Veggie Democrata</h3>
-            <p>Hambúrguer de grão de bico, queijo coalho, rúcula, tomate seco</p>
-            <span class="preco">R$ 26,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Porções -->
-      <div id="porcoes" class="tab-content">
-        <div class="cardapio-grid">
-          <div class="item-card">
-            <div class="item-img-placeholder">🍟</div>
-            <h3>Batata Frita Democrata</h3>
-            <p>Porção grande com cheddar e bacon crocante</p>
-            <span class="preco">R$ 22,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🧅</div>
-            <h3>Onion Rings</h3>
-            <p>Anéis de cebola empanados com molho especial</p>
-            <span class="preco">R$ 18,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🍗</div>
-            <h3>Frango à Passarinho</h3>
-            <p>500g de coxinhas de frango temperadas e crocantes</p>
-            <span class="preco">R$ 25,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🥔</div>
-            <h3>Mandioca Frita</h3>
-            <p>Aipim crocante com molho da casa</p>
-            <span class="preco">R$ 16,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Combos -->
-      <div id="combos" class="tab-content">
-        <div class="cardapio-grid">
-          <div class="item-card combo">
-            <div class="item-img-placeholder">👥</div>
-            <h3>Combo Duplo</h3>
-            <p>2 burgers + batata frita grande + 2 refrigerantes</p>
-            <span class="preco">R$ 58,00</span>
-            <span class="economia">Economia de R$ 10!</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card combo">
-            <div class="item-img-placeholder">👨‍👩‍👧‍👦</div>
-            <h3>Combo Família</h3>
-            <p>4 burgers + 2 porções grandes + 4 refrigerantes</p>
-            <span class="preco">R$ 110,00</span>
-            <span class="economia">Economia de R$ 22!</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card combo">
-            <div class="item-img-placeholder">💑</div>
-            <h3>Combo Casal</h3>
-            <p>2 burgers + 1 porção + 2 cervejas</p>
-            <span class="preco">R$ 65,00</span>
-            <span class="economia">Economia de R$ 8!</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Bebidas -->
-      <div id="bebidas" class="tab-content">
-        <div class="cardapio-grid">
-          <div class="item-card">
-            <div class="item-img-placeholder">🥤</div>
-            <h3>Refrigerante (Lata)</h3>
-            <p>Coca-Cola, Guaraná, Sprite</p>
-            <span class="preco">R$ 6,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🥤</div>
-            <h3>Coca-Cola 2L</h3>
-            <p>Garrafa para dividir</p>
-            <span class="preco">R$ 12,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🍺</div>
-            <h3>Cerveja (Long Neck)</h3>
-            <p>Heineken, Budweiser, Stella</p>
-            <span class="preco">R$ 8,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-          <div class="item-card">
-            <div class="item-img-placeholder">🧃</div>
-            <h3>Suco Natural</h3>
-            <p>Laranja, Limão, Maracujá</p>
-            <span class="preco">R$ 9,00</span>
-            <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-pedir">Pedir no iFood</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cardapio-cta">
-      <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="btn-ifood-grande">
-        🛒 Ver Cardápio Completo no iFood
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="galeria" class="galeria">
-  <div class="container">
-    <h2>📸 Nossa Ambiente</h2>
-    <div class="galeria-grid">
-        <img src="assets/gallery/barbearia-fachada.jpg" alt="Ambiente Principal">
-        <img src="assets/gallery/barbearia-interior.jpg" alt="Segundo Ambiente">
-        <img src="assets/menu/food-truck-horarios.jpg" alt="Área de Serviços">
-      <img src="assets/menu/food-truck-horarios.jpg" alt="Caminhão de Comida">
-    </div>
-  </div>
-</section>
-
-<section id="horarios" class="horarios">
-  <div class="container">
-    <h2>⏰ Horários de Funcionamento</h2>
-    <div class="horarios-grid">
-      <div class="horario-item">
-        <h3>💈 Barbearia</h3>
-        <p>Segunda e Terça: 09h às 20h</p>
-        <p>Quarta a Sexta: 09h às 21h</p>
-        <p>Sábado: 09h às 20h</p>
-        <p>Domingo: Fechado</p>
-      </div>
-      <div class="horario-item">
-        <h3>🍔 Caminhão de Comida & Pub</h3>
-        <p>Terça a Domingo: 18h às 23h</p>
-        <p>Segunda: Fechado</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contato" class="contato">
-  <div class="container">
-    <h2>📱 Conecte-se Conosco</h2>
-    <div class="contato-grid">
-      <a href="tel:+5591981783159" class="contato-item">
-        <div class="contato-icon">📞</div>
-        <div class="contato-info">
-          <h3>Telefone</h3>
-          <p>(91) 98178-3159</p>
-        </div>
-      </a>
-      <a href="https://wa.me/5591981783159" target="_blank" rel="noopener" class="contato-item">
-        <div class="contato-icon">💬</div>
-        <div class="contato-info">
-          <h3>WhatsApp</h3>
-          <p>Fale conosco</p>
-        </div>
-      </a>
-      <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="contato-item">
-        <div class="contato-icon">🛒</div>
-        <div class="contato-info">
-          <h3>iFood</h3>
-          <p>Faça seu pedido</p>
-        </div>
-      </a>
-      <a href="https://www.instagram.com/democratabarber?igsh=b2R2dnNhOXFhMHFt" target="_blank" rel="noopener" class="contato-item">
-        <div class="contato-icon">📷</div>
-        <div class="contato-info">
-          <h3>Instagram</h3>
-          <p>@democratabarber</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2025 Democrata Barbearia & Pub. Todos os direitos reservados.</p>
-    <div class="social-links">
-      <a href="https://www.instagram.com/democratabarber?igsh=b2R2dnNhOXFhMHFt" target="_blank" rel="noopener">📷</a>
-      <a href="https://wa.me/5591981783159" target="_blank" rel="noopener">💬</a>
-      <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener">🛒</a>
-    </div>
-  </div>
-</footer>
-
-<div class="floating-buttons">
-  <a href="tel:+5591981783159" class="float-phone" title="Ligar">📞</a>
-  <a href="https://wa.me/5591981783159" target="_blank" rel="noopener" class="float-whatsapp" title="WhatsApp">💬</a>
-  <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="float-ifood" title="iFood">🛒</a>
-</div>
-
-<script src="script.js"></script>
-<script src="premium-script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,306 +1,151 @@
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+const header = document.getElementById("siteHeader");
+const heroFrame = document.getElementById("heroFrame");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const revealItems = document.querySelectorAll("[data-reveal]");
+const navLinks = document.querySelectorAll(".main-nav a");
+const sectionNodes = document.querySelectorAll("main section[id], main article[id]");
+const galleryCards = document.querySelectorAll(".gallery-card");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// NAVIGATION ACTIVE STATE
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
+function updateHeaderState() {
+  if (!header) return;
+  header.classList.toggle("scrolled", window.scrollY > 20);
+}
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
+function updateActiveNav() {
+  if (!navLinks.length || !sectionNodes.length) return;
 
-// LAZY LOADING FOR IMAGES
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+  let currentId = "";
+  const offset = 180;
+
+  sectionNodes.forEach((section) => {
+    const top = section.offsetTop - offset;
+    if (window.scrollY >= top) {
+      currentId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentId}`;
+    link.classList.toggle("is-active", isActive);
+  });
+}
+
+function setupRevealObserver() {
+  if (!("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            const img = entry.target;
-            img.style.opacity = '0';
-            img.onload = () => {
-                img.style.transition = 'opacity 0.5s ease-in-out';
-                img.style.opacity = '1';
-            };
-            observer.unobserve(img);
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
+      });
+    },
+    {
+      threshold: 0.14,
+      rootMargin: "0px 0px -60px 0px",
+    }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
     });
-});
+  });
+}
 
-document.querySelectorAll('img').forEach(img => {
-    imageObserver.observe(img);
-});
+function setupHeroTilt() {
+  if (!heroFrame || prefersReducedMotion) return;
+  if (window.matchMedia("(pointer: coarse)").matches) return;
 
-// ANIMATE ON SCROLL
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.barbearia-content, .foodtruck-content, .galeria-grid img, .horario-item, .contato-item');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.classList.add('animate');
-        }
+  heroFrame.addEventListener("mousemove", (event) => {
+    const rect = heroFrame.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 8;
+    const rotateX = ((y / rect.height) - 0.5) * -8;
+
+    heroFrame.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  heroFrame.addEventListener("mouseleave", () => {
+    heroFrame.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg)";
+  });
+}
+
+function openLightbox(imageSrc, imageAlt) {
+  if (!lightbox || !lightboxImage) return;
+  lightboxImage.src = imageSrc;
+  lightboxImage.alt = imageAlt;
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  setTimeout(() => {
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+  }, 200);
+}
+
+function setupLightbox() {
+  galleryCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      openLightbox(card.dataset.image, card.dataset.title || "");
     });
-};
+  });
 
-window.addEventListener('scroll', animateOnScroll);
-animateOnScroll(); // Initial check
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
 
-// WHATSAPP SHARE FUNCTION
-function shareOnWhatsApp(message) {
-    const text = encodeURIComponent(message);
-    const url = `https://wa.me/5591981783159?text=${text}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-}
-
-// IFOOD REDIRECT
-function redirectToIFood() {
-    window.open('https://www.ifood.com.br', '_blank', 'noopener,noreferrer');
-}
-
-// PHONE CALL
-function makePhoneCall() {
-    window.location.href = 'tel:+5591981783159';
-}
-
-// GALLERY LIGHTBOX
-const galleryImages = document.querySelectorAll('.galeria-grid img');
-const lightbox = document.createElement('div');
-lightbox.className = 'lightbox';
-lightbox.innerHTML = `
-    <div class="lightbox-content">
-        <span class="lightbox-close">&times;</span>
-        <img src="" alt="" class="lightbox-image">
-    </div>
-`;
-document.body.appendChild(lightbox);
-
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-        const lightboxImage = lightbox.querySelector('.lightbox-image');
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+  if (lightbox) {
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
     });
-});
+  }
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox?.classList.contains("is-open")) {
+      closeLightbox();
     }
-});
-
-// ESC KEY TO CLOSE LIGHTBOX
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// FLOATING BUTTONS ANIMATION
-const floatingButtons = document.querySelectorAll('.floating-buttons a');
-floatingButtons.forEach((button, index) => {
-    button.style.animationDelay = `${index * 0.1}s`;
-    button.classList.add('float-in');
-});
-
-// COPY TO CLIPBOARD FUNCTION
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showNotification('Copiado para a área de transferência!');
-    }).catch(() => {
-        showNotification('Erro ao copiar texto');
-    });
+  });
 }
 
-// NOTIFICATION SYSTEM
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(45deg, #25D366, #128C7E);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        z-index: 10000;
-        animation: slideIn 0.3s ease-out;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 1.1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
+updateHeaderState();
+updateActiveNav();
+setupRevealObserver();
+setupSmoothScroll();
+setupHeroTilt();
+setupLightbox();
 
-// ADD CSS ANIMATIONS
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes floatIn {
-        from {
-            transform: translateY(100px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    .float-in {
-        animation: floatIn 0.6s ease-out forwards;
-        opacity: 0;
-    }
-    
-    .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.9);
-        z-index: 9999;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .lightbox.active {
-        display: flex;
-    }
-    
-    .lightbox-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-    }
-    
-    .lightbox-close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        background: none;
-        border: none;
-    }
-    
-    .lightbox-image {
-        width: 100%;
-        height: auto;
-        border-radius: 15px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    }
-    
-    .animate {
-        animation: fadeInUp 0.6s ease-out;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .nav a.active {
-        background: rgba(255,255,255,0.2);
-        transform: translateY(-2px);
-    }
-`;
-document.head.appendChild(style);
-
-// INITIALIZATION
-document.addEventListener('DOMContentLoaded', () => {
-    animateOnScroll();
-    
-    // Add loading animation to hero
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.opacity = '0';
-        setTimeout(() => {
-            hero.style.transition = 'opacity 1s ease-in-out';
-            hero.style.opacity = '1';
-        }, 100);
-    }
-});
-
-// PERFORMANCE OPTIMIZATION
-let ticking = false;
-function requestTick() {
-    if (!ticking) {
-        requestAnimationFrame(updateAnimations);
-        ticking = true;
-    }
-}
-
-function updateAnimations() {
-    animateOnScroll();
-    ticking = false;
-}
-
-window.addEventListener('scroll', requestTick);
+window.addEventListener("scroll", () => {
+  updateHeaderState();
+  updateActiveNav();
+}, { passive: true });
