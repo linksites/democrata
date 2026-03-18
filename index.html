@@ -24,7 +24,7 @@
           <img src="assets/logo/nome-democrata.png" alt="Democrata" class="brand-wordmark">
         </a>
 
-        <nav class="main-nav" aria-label="Navegacao principal">
+        <nav class="main-nav" id="mobileNavigation" aria-label="Navegacao principal">
           <a href="#sabores">Sabores</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#galeria">Galeria</a>
@@ -32,9 +32,23 @@
           <a href="#contato">Contato</a>
         </nav>
 
-        <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="header-cta">
-          Abrir cardapio no iFood
-        </a>
+        <div class="header-actions">
+          <a href="https://www.ifood.com.br/delivery/belem-pa/hamburgueria-democrata-foodtruck-sao-bras/dab2efc5-4c97-47c3-8800-0b76dcb90263?utm_medium=share" target="_blank" rel="noopener" class="header-cta">
+            Abrir cardapio no iFood
+          </a>
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mobileNavigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 

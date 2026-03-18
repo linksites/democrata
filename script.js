@@ -3,6 +3,8 @@ const header = document.getElementById("siteHeader");
 const hero = document.querySelector(".hero");
 const heroBg = document.querySelector(".hero-bg");
 const heroFrame = document.getElementById("heroFrame");
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mobileNavigation");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
@@ -12,6 +14,7 @@ const sectionNodes = document.querySelectorAll("main section[id], main article[i
 const galleryCards = document.querySelectorAll(".gallery-card");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+const mobileViewport = window.matchMedia("(max-width: 860px)");
 
 let scrollTicking = false;
 
@@ -22,6 +25,18 @@ function clamp(value, min, max) {
 function updateHeaderState() {
   if (!header) return;
   header.classList.toggle("scrolled", window.scrollY > 20);
+}
+
+function setMenuState(isOpen) {
+  if (!header || !menuToggle) return;
+
+  header.classList.toggle("menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+}
+
+function closeMobileMenu() {
+  setMenuState(false);
 }
 
 function updateActiveNav() {
@@ -108,6 +123,7 @@ function setupSmoothScroll() {
       if (!target) return;
 
       event.preventDefault();
+      closeMobileMenu();
       target.scrollIntoView({
         behavior: prefersReducedMotion ? "auto" : "smooth",
         block: "start",
@@ -155,6 +171,33 @@ function setupHeroPointerGlow() {
   hero.addEventListener("pointerleave", () => {
     hero.style.setProperty("--pointer-x", "68%");
     hero.style.setProperty("--pointer-y", "28%");
+  });
+}
+
+function setupMobileMenu() {
+  if (!menuToggle || !header || !mainNav) return;
+
+  menuToggle.addEventListener("click", () => {
+    const willOpen = !header.classList.contains("menu-open");
+    setMenuState(willOpen);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mobileViewport.matches || !header.classList.contains("menu-open")) return;
+    if (header.contains(event.target)) return;
+    closeMobileMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header.classList.contains("menu-open")) {
+      closeMobileMenu();
+    }
+  });
+
+  mobileViewport.addEventListener("change", (event) => {
+    if (!event.matches) {
+      closeMobileMenu();
+    }
   });
 }
 
@@ -212,6 +255,7 @@ updateActiveNav();
 updateScrollEffects();
 setupRevealObserver();
 setupSmoothScroll();
+setupMobileMenu();
 setupHeroTilt();
 setupHeroPointerGlow();
 setupLightbox();
