@@ -1,0 +1,35 @@
+{
+  "name": "democrata-barbearia-pub",
+  "version": "1.0.0",
+  "description": "Site moderno e completo para Democrata Barbearia & Pub com integrações totais",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Build ready for deployment'",
+    "deploy": "echo 'Ready for deployment to GitHub Pages, Netlify, Vercel or Firebase'"
+  },
+  "keywords": [
+    "barbearia",
+    "pub",
+    "food-truck",
+    "website",
+    "responsive",
+    "modern",
+    "whatsapp",
+    "ifood",
+    "instagram"
+  ],
+  "author": "Democrata Barbearia & Pub",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/democrata-barbearia-pub"
+  },
+  "homepage": "https://democrata-barbearia-pub.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

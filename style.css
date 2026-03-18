@@ -1,0 +1,474 @@
+/* RESET E BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* TYPOGRAPHY */
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('assets/gallery/barbearia-ambiente-01.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-actions {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #EA1D2C, #FF6B6B);
+  color: white;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(234, 29, 44, 0.3);
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #333;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* SECTIONS */
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.barbearia {
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+
+.foodtruck {
+  background: linear-gradient(135deg, #1a0000, #2d0a0a);
+}
+
+.galeria {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+.horarios {
+  background: linear-gradient(135deg, #000, #111);
+}
+
+.contato {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+/* BARBEARIA CONTENT */
+.barbearia-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.barbearia-text ul {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.barbearia-text li {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-agendar {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-agendar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+.barbearia-gallery img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* FOOD TRUCK CONTENT */
+.foodtruck-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.menu-destaque {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu-destaque img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #FF6B6B;
+}
+
+.pedidos-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-ifood {
+  background: linear-gradient(45deg, #EA1D2C, #FF6B6B);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-ifood:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(234, 29, 44, 0.3);
+}
+
+.btn-phone {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-phone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+.foodtruck-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* GALERIA */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* HORÁRIOS */
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.horario-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.horario-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* CONTATO */
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.contato-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contato-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.08);
+}
+
+.contato-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* FOOTER */
+.footer {
+  background: #000;
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* FLOATING BUTTONS */
+.floating-buttons {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.floating-buttons a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.float-phone {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+}
+
+.float-whatsapp {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+}
+
+.float-ifood {
+  background: linear-gradient(45deg, #EA1D2C, #FF6B6B);
+  color: white;
+}
+
+.floating-buttons a:hover {
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .barbearia-content,
+  .foodtruck-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .horarios-grid,
+  .contato-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .floating-buttons {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .floating-buttons a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
