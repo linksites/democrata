@@ -35,13 +35,17 @@ function setMenuState(isOpen) {
   menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
 
   if (mobileViewport.matches) {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
   }
 }
 
 function closeMobileMenu() {
   setMenuState(false);
-  document.body.style.overflow = "";
+  document.body.classList.remove("menu-open");
 }
 
 function updateActiveNav() {
