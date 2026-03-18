@@ -83,6 +83,7 @@ foreach ($file in $filesToCheck) {
         $encodingWarnings.Add([pscustomobject]@{
             File = $file
             Hint = "Possivel texto com codificacao incorreta"
+            Hint = "Possível texto com codificação incorreta"
         })
     }
 
@@ -103,13 +104,16 @@ foreach ($file in $filesToCheck) {
 
 Write-Host ""
 Write-Host "Validacao do site Democrata"
+Write-Host "Validação do site Democrata"
 Write-Host "Raiz: $root"
 Write-Host ""
 
 if ($missingReferences.Count -eq 0) {
     Write-Host "[OK] Nenhuma referencia local quebrada encontrada."
+    Write-Host "[OK] Nenhuma referência local quebrada encontrada."
 } else {
     Write-Host "[ERRO] Referencias locais quebradas:"
+    Write-Host "[ERRO] Referências locais quebradas:"
     $missingReferences |
         Sort-Object Source, Reference -Unique |
         ForEach-Object { Write-Host " - $($_.Source) -> $($_.Reference)" }
@@ -119,8 +123,10 @@ Write-Host ""
 
 if ($encodingWarnings.Count -eq 0) {
     Write-Host "[OK] Nenhum sinal evidente de codificacao inconsistente."
+    Write-Host "[OK] Nenhum sinal evidente de codificação inconsistente."
 } else {
     Write-Host "[AVISO] Possiveis problemas de codificacao:"
+    Write-Host "[AVISO] Possíveis problemas de codificação:"
     $encodingWarnings |
         Sort-Object File -Unique |
         ForEach-Object { Write-Host " - $($_.File): $($_.Hint)" }

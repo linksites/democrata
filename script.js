@@ -17,14 +17,22 @@ const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 const mobileViewport = window.matchMedia("(max-width: 860px)");
 
 let scrollTicking = false;
+let sectionOffsets = [];
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-function updateHeaderState() {
+function calculateSectionOffsets() {
+  sectionOffsets = Array.from(sectionNodes).map((section) => ({
+    id: section.id,
+    top: section.offsetTop - 180,
+  }));
+}
+
+function updateHeaderState(scrollY) {
   if (!header) return;
-  header.classList.toggle("scrolled", window.scrollY > 20);
+  header.classList.toggle("scrolled", scrollY > 20);
 }
 
 function setMenuState(isOpen) {
@@ -37,8 +45,10 @@ function setMenuState(isOpen) {
   if (mobileViewport.matches) {
     if (isOpen) {
       document.body.classList.add("menu-open");
+      document.body.style.overflow = "hidden";
     } else {
       document.body.classList.remove("menu-open");
+      document.body.style.overflow = "";
     }
   }
 }
@@ -48,15 +58,13 @@ function closeMobileMenu() {
   document.body.classList.remove("menu-open");
 }
 
-function updateActiveNav() {
-  if (!navLinks.length || !sectionNodes.length) return;
+function updateActiveNav(scrollY) {
+  if (!navLinks.length || !sectionOffsets.length) return;
 
   let currentId = "";
-  const offset = 180;
 
-  sectionNodes.forEach((section) => {
-    const top = section.offsetTop - offset;
-    if (window.scrollY >= top) {
+  sectionOffsets.forEach((section) => {
+    if (scrollY >= section.top) {
       currentId = section.id;
     }
   });
@@ -67,16 +75,21 @@ function updateActiveNav() {
   });
 }
 
-function updateScrollEffects() {
+function updateScrollEffects(scrollY) {
+  // --- FASE DE LEITURA (READS) ---
   const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+  const progress = scrollableHeight > 0 ? (scrollY / scrollableHeight) * 100 : 0;
+  
+  let heroShift = 0;
+  if (hero && !prefersReducedMotion) {
+    const heroRect = hero.getBoundingClientRect();
+    heroShift = clamp(heroRect.top * -0.12, -44, 44);
+  }
 
+  // --- FASE DE ESCRITA (WRITES) ---
   root.style.setProperty("--scroll-progress", progress.toFixed(2));
 
   if (!hero || prefersReducedMotion) return;
-
-  const heroRect = hero.getBoundingClientRect();
-  const heroShift = clamp(heroRect.top * -0.12, -44, 44);
 
   if (heroBg) {
     heroBg.style.transform = `scale(1.08) translate3d(0, ${heroShift}px, 0)`;
@@ -92,9 +105,12 @@ function requestScrollEffects() {
 
   scrollTicking = true;
   window.requestAnimationFrame(() => {
-    updateHeaderState();
-    updateActiveNav();
-    updateScrollEffects();
+    const scrollY = window.scrollY;
+    
+    updateScrollEffects(scrollY);
+    updateHeaderState(scrollY);
+    updateActiveNav(scrollY);
+    
     scrollTicking = false;
   });
 }
@@ -259,9 +275,10 @@ function setupLightbox() {
   });
 }
 
-updateHeaderState();
-updateActiveNav();
-updateScrollEffects();
+calculateSectionOffsets();
+updateScrollEffects(window.scrollY);
+updateHeaderState(window.scrollY);
+updateActiveNav(window.scrollY);
 setupRevealObserver();
 setupSmoothScroll();
 setupMobileMenu();
@@ -270,4 +287,7 @@ setupHeroPointerGlow();
 setupLightbox();
 
 window.addEventListener("scroll", requestScrollEffects, { passive: true });
-window.addEventListener("resize", requestScrollEffects);
+window.addEventListener("resize", () => {
+  calculateSectionOffsets();
+  requestScrollEffects();
+});
