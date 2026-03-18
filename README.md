@@ -1,104 +1,126 @@
 # Democrata Barbearia & Pub
 
-## 🎯 Projeto Inovador
+Site estatico da Democrata com foco em tres frentes da marca: barbearia, pub e gastronomia. A base atual trabalha com HTML, CSS e JavaScript vanilla, com deploy simples e fluxo leve para evolucao continua.
 
-Site moderno e completo para barbearia/pub com integrações totais:
+## Estado atual
 
-### 🚀 **Recursos Únicos**
-- **Design Responsivo**: Mobile-first com animações suaves
-- **Integrações Completas**: Telefone, WhatsApp, iFood, Instagram
-- **Galeria Interativa**: Lightbox com lazy loading
-- **Navegação Fluida**: Smooth scroll com active state
-- **Performance Otimizada**: Animações com requestAnimationFrame
+- Pagina principal em `index.html`
+- Camada visual dividida entre estilos base e camada premium
+- Scripts de interacao em JavaScript puro
+- Estrutura de imagens organizada em `assets/`
+- Workflow de deploy para GitHub Pages em `.github/workflows/deploy.yml`
+- Validacao local de referencias com `npm run check`
 
-### 📱 **Funcionalidades**
-- ✅ Botões flutuantes para contato rápido
-- ✅ Hero section com imagem de fundo animada
-- ✅ Cardápio visual para food truck
-- ✅ Sistema de horários organizado
-- ✅ Notificações toast elegantes
-- ✅ Copy to clipboard functionality
+## Direcao criativa
 
-### 🎨 **Design System**
-- **Cores**: Tema escuro com gradientes modernos
-- **Tipografia**: Bebas Neue + Roboto
-- **Animações**: CSS transitions + JavaScript
-- **Layout**: Grid system responsivo
+A direcao recomendada para a marca hoje e `Noite urbana premium`:
 
-### 🛠 **Tecnologias**
-- **HTML5**: Semântico e acessível
-- **CSS3**: Moderno com variáveis e animações
-- **JavaScript Vanilla**: Sem frameworks, performance máxima
-- **Web Standards**: SEO otimizado
+- preto grafite, dourado queimado, cobre e vermelho vinho
+- tipografia forte e atmosfera noturna
+- fotos reais com mais protagonismo do que efeitos genericos
+- dois fluxos comerciais claros: `Agendar corte` e `Pedir no iFood`
 
-### 📁 **Estrutura**
+## Stack
+
+- HTML5
+- CSS3
+- JavaScript vanilla
+- Google Fonts
+- GitHub Pages para deploy
+
+## Estrutura principal
+
+```text
+.
+|-- .github/
+|   `-- workflows/
+|-- assets/
+|   |-- gallery/
+|   |-- hero/
+|   |-- logo/
+|   `-- menu/
+|-- scripts/
+|   `-- validate-site.ps1
+|-- index.html
+|-- style.css
+|-- cardapio-styles.css
+|-- logo-styles.css
+|-- premium-styles.css
+|-- script.js
+|-- premium-script.js
+|-- package.json
+|-- WORKFLOW-ESCALAVEL.md
+`-- README.md
 ```
-├── index.html          # Página principal
-├── style.css          # Estilos completos
-├── script.js          # Interatividade
-├── assets/
-│   ├── logo/          # Logo e branding
-│   ├── hero/          # Imagem principal
-│   ├── gallery/       # Galeria de ambientes
-│   └── menu/          # Cardápio visual
-└── README.md          # Documentação
-```
 
-### 🌐 **Deploy Options**
+## Como rodar localmente
 
-#### 1. **GitHub Pages** (Recomendado)
+Requisitos:
+
+- Python instalado para preview local
+- Node.js apenas para executar os scripts do `package.json`
+
+Comandos:
+
 ```bash
-# 1. Criar repositório no GitHub
-# 2. Fazer push dos arquivos
-# 3. Ativar GitHub Pages nas settings
+npm run dev
 ```
 
-#### 2. **Netlify** (Drag & Drop)
+Isso sobe um servidor local em `http://localhost:3000`.
+
+## Validacao
+
+Antes de publicar, rode:
+
 ```bash
-# Arrastar pasta para netlify.com
-# Deploy automático em segundos
+npm run check
 ```
 
-#### 3. **Vercel** (Zero Config)
-```bash
-# Importar projeto do GitHub
-# Deploy automático com HTTPS
-```
+Esse comando verifica:
 
-#### 4. **Firebase Hosting**
-```bash
-# firebase init
-# firebase deploy
-```
+- referencias locais quebradas em HTML e CSS
+- sinais evidentes de inconsistencias de codificacao
 
-### 📞 **Atualizar Contatos**
-- **Telefone**: `+5591981783159` → Seu número real
-- **WhatsApp**: Link wa.me/5591981783159 com seu número/5591981783159`
-- **iFood**: Link direto para pedidos
-- **Instagram**: `@democratapub`
+## Fluxo de trabalho recomendado
 
-### 🚀 **Como Usar**
-1. **Clone o repositório**
-2. **Adicione suas imagens** na pasta `assets/`
-3. **Atualize os contatos** no HTML
-4. **Faça deploy** na plataforma preferida
+1. Ver o estado do repositorio com `git status --short`
+2. Rodar o site com `npm run dev`
+3. Fazer uma alteracao pequena por vez
+4. Validar com `npm run check`
+5. Revisar no desktop e no mobile
+6. Commitar em blocos curtos e descritivos
 
-### 💡 **Diferenciais**
-- ✨ **Performance**: Carregamento ultra rápido
-- 🎯 **UX**: Interface intuitiva e moderna
-- 📱 **Mobile**: 100% responsivo
-- 🔗 **Integrações**: Conectado com todas as plataformas
-- 🎨 **Design**: Único e profissional
+O fluxo completo e as prioridades do projeto estao em `WORKFLOW-ESCALAVEL.md`.
 
-### 📈 **SEO Otimizado**
-- Meta tags completas
-- Semântica HTML5
-- Imagens com alt text
-- Links canônicos
-- Performance score 95+
+## Prioridades da proxima sprint
 
----
+1. Consolidar a camada visual entre `style.css` e `premium-styles.css`
+2. Consolidar a camada de interacao entre `script.js` e `premium-script.js`
+3. Reescrever o hero com proposta mais clara em poucos segundos
+4. Reduzir ruido visual e trocar excesso de emoji por linguagem mais consistente
+5. Destacar endereco, horarios e prova social com mais peso comercial
 
-**Criado com ❤️ para Democrata Barbearia & Pub**
+## Deploy
 
-*Modelo replicável para outros estabelecimentos*
+O repositorio ja possui workflow de GitHub Pages:
+
+- arquivo: `.github/workflows/deploy.yml`
+- gatilho: push na branch `main`
+- publicacao: artifact da raiz do projeto
+
+Se o repositorio estiver configurado com GitHub Pages usando GitHub Actions, o deploy acontece automaticamente a cada push na `main`.
+
+## Arquivos mais importantes
+
+- `index.html`: estrutura principal da pagina
+- `premium-styles.css`: camada visual premium
+- `premium-script.js`: interacoes premium e animacoes
+- `style.css`: estilos base
+- `script.js`: interacoes base
+- `scripts/validate-site.ps1`: validacao local
+
+## Observacoes
+
+- O projeto pode ter alteracoes locais em andamento; evite sobrescrever arquivos sem revisar `git status`
+- O ideal e manter a evolucao em sprints curtas: estabilidade, conversao, identidade visual e refinamento
+

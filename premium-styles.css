@@ -14,6 +14,39 @@
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* HERO TITLE IMAGE */
+.hero-title {
+  width: 300px;
+  height: auto;
+  margin: 20px 0;
+  animation: title-glow 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+}
+
+@keyframes title-glow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+    transform: scale(1);
+  }
+  to {
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.9));
+    transform: scale(1.02);
+  }
+}
+
+/* RESPONSIVE HERO TITLE */
+@media (max-width: 768px) {
+  .hero-title {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    width: 200px;
+  }
+}
+
 /* LOADING SCREEN ELEGANTE */
 .loading-screen {
   position: fixed;

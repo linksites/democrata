@@ -113,7 +113,7 @@ function initRevealAnimations() {
 // ANIMAÇÃO ELEMENTOS DO HERO
 function animateHeroElements() {
     const heroLogo = document.querySelector('.hero-logo');
-    const heroTitle = document.querySelector('.hero h1');
+    const heroTitle = document.querySelector('.hero-title') || document.querySelector('.hero h1');
     const heroSubtitle = document.querySelector('.hero p');
     const heroActions = document.querySelector('.hero-actions');
     

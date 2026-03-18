@@ -6,6 +6,7 @@
   "scripts": {
     "start": "python -m http.server 3000",
     "dev": "python -m http.server 3000",
+    "check": "powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1",
     "build": "echo 'Build ready for deployment'",
     "deploy": "echo 'Ready for deployment to GitHub Pages, Netlify, Vercel or Firebase'"
   },
