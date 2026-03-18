@@ -33,10 +33,15 @@ function setMenuState(isOpen) {
   header.classList.toggle("menu-open", isOpen);
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+
+  if (mobileViewport.matches) {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
 }
 
 function closeMobileMenu() {
   setMenuState(false);
+  document.body.style.overflow = "";
 }
 
 function updateActiveNav() {
