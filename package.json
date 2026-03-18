@@ -1,14 +1,12 @@
 {
   "name": "democrata-barbearia-pub",
   "version": "1.0.0",
-  "description": "Site moderno e completo para Democrata Barbearia & Pub com integrações totais",
+  "description": "Landing page premium da Democrata com foco em burger, pub e barbearia.",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 3000",
     "dev": "python -m http.server 3000",
-    "check": "powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1",
-    "build": "echo 'Build ready for deployment'",
-    "deploy": "echo 'Ready for deployment to GitHub Pages, Netlify, Vercel or Firebase'"
+    "check": "powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1"
   },
   "keywords": [
     "barbearia",
@@ -25,9 +23,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/democrata-barbearia-pub"
+    "url": "https://github.com/linksites/democrata.git"
   },
-  "homepage": "https://democrata-barbearia-pub.vercel.app",
+  "homepage": "https://linksites.github.io/democrata/",
   "engines": {
     "node": ">=14.0.0"
   },

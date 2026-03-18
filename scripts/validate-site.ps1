@@ -70,11 +70,7 @@ function Resolve-ReferencePath {
 $filesToCheck = @(
     "index.html",
     "style.css",
-    "cardapio-styles.css",
-    "logo-styles.css",
-    "premium-styles.css",
-    "script.js",
-    "premium-script.js"
+    "script.js"
 ) | Where-Object { Test-Path $_ }
 
 $missingReferences = New-Object System.Collections.Generic.List[pscustomobject]
