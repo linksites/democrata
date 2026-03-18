@@ -1382,8 +1382,8 @@ section {
     grid-area: brand;
     min-width: 0;
     gap: 10px;
-    max-width: 100%;
-    overflow: hidden;
+    max-width: none;
+    overflow: visible;
   }
 
   .brand-wordmark {
@@ -1393,13 +1393,13 @@ section {
 
   .header-actions {
     grid-area: actions;
-    gap: 10px;
+    gap: 12px;
   }
 
   .header-cta {
     flex-shrink: 0;
-    padding: 12px 16px;
-    font-size: 0.88rem;
+    padding: 12px 18px;
+    font-size: 0.84rem;
     white-space: nowrap;
   }
 
@@ -1505,21 +1505,21 @@ section {
   }
 
   .nav-wrap {
-    gap: 8px;
-    width: min(calc(100% - 20px), var(--container));
+    gap: 12px;
+    width: min(calc(100% - 24px), var(--container));
   }
 
   .brand {
-    max-width: calc(100% - 142px);
+    max-width: none;
   }
 
   .header-actions {
-    gap: 8px;
+    gap: 10px;
   }
 
   .brand-mark {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
   }
 
   .brand-wordmark,
@@ -1528,45 +1528,45 @@ section {
   }
 
   .hero-brandmark {
-    width: min(290px, 78vw);
+    width: min(330px, 88vw);
     margin-bottom: 8px;
   }
 
   .header-cta {
-    max-width: 134px;
-    padding: 9px 12px;
-    font-size: 0.74rem;
+    max-width: 146px;
+    padding: 11px 14px;
+    font-size: 0.78rem;
     letter-spacing: 0.01em;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .menu-toggle {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
   }
 
   .menu-toggle span {
-    left: 11px;
-    right: 11px;
+    left: 12px;
+    right: 12px;
   }
 
   .menu-toggle span:nth-child(1) {
-    top: 14px;
+    top: 15px;
   }
 
   .menu-toggle span:nth-child(2) {
-    top: 20px;
+    top: 22px;
   }
 
   .menu-toggle span:nth-child(3) {
-    top: 26px;
+    top: 29px;
   }
 
   .site-header.menu-open .menu-toggle span:nth-child(1),
   .site-header.menu-open .menu-toggle span:nth-child(3) {
-    top: 20px;
+    top: 22px;
   }
 
   .hero-copy h1 {
@@ -1612,28 +1612,24 @@ section {
 }
 
 @media (max-width: 420px) {
-  .brand {
-    max-width: calc(100% - 128px);
-  }
-
   .brand-wordmark {
     width: 78px;
   }
 
   .hero-brandmark {
-    width: min(250px, 80vw);
+    width: min(300px, 90vw);
     margin-bottom: 6px;
   }
 
   .header-cta {
-    max-width: 120px;
-    padding: 8px 10px;
-    font-size: 0.7rem;
+    max-width: 136px;
+    padding: 10px 12px;
+    font-size: 0.74rem;
   }
 
   .menu-toggle {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 }
 
