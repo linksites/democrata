@@ -15,7 +15,7 @@
   --radius-lg: 24px;
   --transition: 220ms ease;
   --container: 1180px;
-  --header-height: 94px;
+  --header-height: 84px;
   --scroll-progress: 0;
   --pointer-x: 68%;
   --pointer-y: 28%;
@@ -105,9 +105,9 @@ button {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  padding: 12px 16px;
-  font-size: 0.78rem;
+  gap: 20px;
+  padding: 10px 16px;
+  font-size: 0.74rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--gold);
@@ -129,16 +129,16 @@ button {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   min-height: var(--header-height);
-  width: min(calc(100% - 32px), var(--container));
+  width: min(calc(100% - 24px), var(--container));
   margin: 0 auto;
 }
 
 .header-actions {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   justify-self: end;
 }
 
@@ -149,8 +149,8 @@ button {
 }
 
 .brand-mark {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid rgba(245, 207, 119, 0.42);
@@ -172,7 +172,7 @@ button {
 .main-nav {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .menu-toggle {
@@ -234,7 +234,10 @@ button {
 .main-nav a,
 .footer-links a {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   color: var(--muted);
+  font-size: 0.95rem;
   transition: color var(--transition), transform var(--transition);
 }
 
@@ -287,8 +290,12 @@ button {
 }
 
 .header-cta {
-  padding: 14px 22px;
+  min-height: 46px;
+  padding: 0 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .btn-secondary,
@@ -1374,7 +1381,7 @@ section {
     grid-template-areas:
       "brand actions"
       "menu menu";
-    gap: 12px;
+    gap: 10px;
     justify-content: space-between;
   }
 
@@ -1393,13 +1400,14 @@ section {
 
   .header-actions {
     grid-area: actions;
-    gap: 12px;
+    gap: 8px;
   }
 
   .header-cta {
     flex-shrink: 0;
-    padding: 12px 18px;
-    font-size: 0.84rem;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.76rem;
     white-space: nowrap;
   }
 
@@ -1415,7 +1423,10 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2px;
-    width: 100%;
+    width: fit-content;
+    min-width: 210px;
+    max-width: min(250px, calc(100vw - 24px));
+    justify-self: end;
     margin-top: 4px;
     padding: 0;
     max-height: 0;
@@ -1442,9 +1453,10 @@ section {
   }
 
   .main-nav a {
-    padding: 14px 16px;
+    padding: 13px 15px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
   }
 
   .main-nav a::after {
@@ -1505,8 +1517,8 @@ section {
   }
 
   .nav-wrap {
-    gap: 12px;
-    width: min(calc(100% - 24px), var(--container));
+    gap: 10px;
+    width: min(calc(100% - 18px), var(--container));
   }
 
   .brand {
@@ -1514,12 +1526,12 @@ section {
   }
 
   .header-actions {
-    gap: 10px;
+    gap: 8px;
   }
 
   .brand-mark {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
   }
 
   .brand-wordmark,
@@ -1533,40 +1545,46 @@ section {
   }
 
   .header-cta {
-    max-width: 146px;
-    padding: 11px 14px;
-    font-size: 0.78rem;
+    min-height: 40px;
+    max-width: 134px;
+    padding: 0 12px;
+    font-size: 0.72rem;
     letter-spacing: 0.01em;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .menu-toggle {
-    width: 46px;
-    height: 46px;
-    border-radius: 15px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .main-nav {
+    min-width: 194px;
+    max-width: min(232px, calc(100vw - 18px));
   }
 
   .menu-toggle span {
-    left: 12px;
-    right: 12px;
+    left: 11px;
+    right: 11px;
   }
 
   .menu-toggle span:nth-child(1) {
-    top: 15px;
+    top: 14px;
   }
 
   .menu-toggle span:nth-child(2) {
-    top: 22px;
+    top: 20px;
   }
 
   .menu-toggle span:nth-child(3) {
-    top: 29px;
+    top: 26px;
   }
 
   .site-header.menu-open .menu-toggle span:nth-child(1),
   .site-header.menu-open .menu-toggle span:nth-child(3) {
-    top: 22px;
+    top: 20px;
   }
 
   .hero-copy h1 {
@@ -1621,15 +1639,26 @@ section {
     margin-bottom: 6px;
   }
 
+  .main-nav {
+    min-width: 188px;
+    max-width: min(228px, calc(100vw - 16px));
+  }
+
   .header-cta {
-    max-width: 136px;
-    padding: 10px 12px;
-    font-size: 0.74rem;
+    min-height: 38px;
+    max-width: 126px;
+    padding: 0 10px;
+    font-size: 0.68rem;
   }
 
   .menu-toggle {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .main-nav {
+    min-width: 182px;
+    max-width: min(214px, calc(100vw - 14px));
   }
 }
 
