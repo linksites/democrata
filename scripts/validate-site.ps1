@@ -1,3 +1,4 @@
+Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
@@ -20,7 +21,7 @@ function Get-LocalReferences {
             }
         }
     } else {
-        [regex]::Matches($content, '(src|href)=["''](?<path>[^"'']+)["'']') | ForEach-Object {
+        [regex]::Matches($content, '(src|href|data-image)=["''](?<path>[^"'']+)["'']') | ForEach-Object {
             $path = $_.Groups["path"].Value.Trim()
             if (-not [string]::IsNullOrWhiteSpace($path)) {
                 $references.Add($path)
@@ -79,11 +80,10 @@ $encodingWarnings = New-Object System.Collections.Generic.List[pscustomobject]
 foreach ($file in $filesToCheck) {
     $content = Get-Content $file -Raw -Encoding UTF8
 
-    if ($content -match "Ã|â|ðŸ|�") {
+    if ($content -match "Ãƒ|Ã¢|Ã°Å¸|ï¿½") {
         $encodingWarnings.Add([pscustomobject]@{
             File = $file
-            Hint = "Possivel texto com codificacao incorreta"
-            Hint = "Possível texto com codificação incorreta"
+            Hint = "Possible text encoding issue detected"
         })
     }
 
@@ -103,17 +103,14 @@ foreach ($file in $filesToCheck) {
 }
 
 Write-Host ""
-Write-Host "Validacao do site Democrata"
-Write-Host "Validação do site Democrata"
-Write-Host "Raiz: $root"
+Write-Host "Democrata site validation"
+Write-Host "Root: $root"
 Write-Host ""
 
 if ($missingReferences.Count -eq 0) {
-    Write-Host "[OK] Nenhuma referencia local quebrada encontrada."
-    Write-Host "[OK] Nenhuma referência local quebrada encontrada."
+    Write-Host "[OK] No broken local references found."
 } else {
-    Write-Host "[ERRO] Referencias locais quebradas:"
-    Write-Host "[ERRO] Referências locais quebradas:"
+    Write-Host "[ERROR] Broken local references:"
     $missingReferences |
         Sort-Object Source, Reference -Unique |
         ForEach-Object { Write-Host " - $($_.Source) -> $($_.Reference)" }
@@ -122,11 +119,9 @@ if ($missingReferences.Count -eq 0) {
 Write-Host ""
 
 if ($encodingWarnings.Count -eq 0) {
-    Write-Host "[OK] Nenhum sinal evidente de codificacao inconsistente."
-    Write-Host "[OK] Nenhum sinal evidente de codificação inconsistente."
+    Write-Host "[OK] No obvious encoding issues found."
 } else {
-    Write-Host "[AVISO] Possiveis problemas de codificacao:"
-    Write-Host "[AVISO] Possíveis problemas de codificação:"
+    Write-Host "[WARN] Possible encoding issues:"
     $encodingWarnings |
         Sort-Object File -Unique |
         ForEach-Object { Write-Host " - $($_.File): $($_.Hint)" }

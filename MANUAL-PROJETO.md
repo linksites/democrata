@@ -2,11 +2,18 @@
 
 ## Objetivo
 
-Este manual serve para manter o site no ar com o minimo de atrito. A ideia e concentrar a operacao do projeto em poucos arquivos, poucas regras e um fluxo repetivel.
+Este manual existe para manter o site no ar com o minimo de atrito.
 
-## Base atual
+O projeto foi montado para ter:
 
-O site hoje usa somente:
+- poucos arquivos
+- manutencao direta
+- preview local simples
+- validacao antes do deploy
+
+## Base Atual
+
+Os arquivos centrais do site sao:
 
 - `index.html`
 - `style.css`
@@ -16,11 +23,11 @@ O site hoje usa somente:
 - `assets/menu/`
 - `assets/gallery/`
 
-Se um arquivo estiver fora desse fluxo e nao for usado pela pagina, ele provavelmente e sobra antiga.
+Se um arquivo estiver fora desse fluxo e nao for usado pela pagina, ele deve ser revisto antes de continuar acumulando no repositorio.
 
-## Onde editar cada coisa
+## Onde Editar Cada Parte
 
-### Textos e links
+### Textos, links e estrutura
 
 Arquivo:
 
@@ -28,14 +35,14 @@ Arquivo:
 
 Aqui voce altera:
 
-- slogan principal
-- textos das secoes
-- precos
-- botoes
+- titulos e descricoes
 - links de iFood, WhatsApp, telefone e Instagram
 - horarios
+- cards de cardapio
+- ordem das secoes
+- imagens usadas em hero, galeria e horarios
 
-### Aparencia
+### Aparencia e responsividade
 
 Arquivo:
 
@@ -47,9 +54,9 @@ Aqui voce altera:
 - espacamentos
 - tipografia
 - layout
-- responsividade
 - estados de hover
 - animacoes
+- comportamento mobile
 
 ### Interacoes
 
@@ -59,80 +66,102 @@ Arquivo:
 
 Aqui voce altera:
 
-- animacoes de entrada
-- nav ativa no scroll
+- reveal animations
 - smooth scroll
-- tilt do card principal
+- nav ativa no scroll
+- menu mobile
+- tilt do hero
 - lightbox da galeria
 
-## Pastas de imagem usadas
+## Assets Ativos na Pagina
 
 ### Hero
 
 - `assets/hero/hero-bg.jpg`
+- `assets/menu/triocompletodemocrata.jpg`
 
 ### Logo
 
-- `assets/logo/logo-perfil.jpg`
+- `assets/logo/logo-perfil1.jpg`
 - `assets/logo/nome-democrata.png`
 
 ### Menu
 
-- `assets/menu/burger-destaque.jpg`
-- `assets/menu/burger-artesanal.jpg`
-- `assets/menu/food-truck-horarios.jpg`
+- `assets/menu/burguerdemocrata.jpg`
+- `assets/menu/burguercareca.jpg`
+- `assets/menu/combotriocareca.jpg`
 
 ### Galeria
 
+- `assets/menu/burguercorte.jpg`
+- `assets/menu/triocompletodemocrata.jpg`
+- `assets/menu/sanduichleitaonabrasa.jpg`
 - `assets/gallery/edisonlima.jpg`
 - `assets/gallery/barbearia-interior.jpg`
 
-## Fluxo recomendado de trabalho
+### Horarios
+
+- `assets/menu/food-truck-horarios.jpg`
+
+## Assets em Revisao
+
+Os arquivos abaixo nao sao a referencia principal atual do front:
+
+- `assets/logo/logoperfil.jpg`
+- `assets/menu/burger-destaque.jpg`
+- `assets/menu/omelhorburgue.jpg`
+- `assets/burguerdocareca.jpg`
+- `assets/menu/combotriocareca`
+
+Eles devem ser mantidos apenas como acervo temporario ate uma limpeza dedicada.
+
+## Fluxo Recomendado
 
 1. Rodar `git status --short`
-2. Subir preview com `npm run dev`
-3. Fazer uma alteracao pequena por vez
+2. Subir preview local com `npm run dev`
+3. Fazer alteracoes pequenas por vez
 4. Validar com `npm run check`
 5. Revisar no desktop e no mobile
 6. Commitar
 7. Fazer push para `main`
 
-## Como publicar
+## Como Publicar
 
 O projeto usa GitHub Pages com GitHub Actions.
 
 Passos:
 
-1. Confirmar que tudo passou em `npm run check`
+1. Confirmar que `npm run check` passou
 2. Commitar as alteracoes
 3. Fazer `git push origin main`
 4. Aguardar o workflow terminar
 5. Conferir `https://linksites.github.io/democrata/`
 
-## Regras para manter consistencia
+## Regras de Consistencia
 
-- Nao recriar camadas paralelas de CSS ou JS
-- Nao adicionar arquivos de imagem soltos fora da estrutura atual
-- Nao espalhar documentacao em varios arquivos pequenos quando o manual resolver
-- Nao deixar links comerciais duplicados com textos conflitantes
-- Sempre validar antes de publicar
+- nao duplicar CSS ou JS para resolver o mesmo problema
+- nao apontar o HTML para assets inexistentes
+- nao manter documentacao divergente do estado real do projeto
+- nao misturar arquivos mestre pesados com thumbnails web sem criterio
+- validar sempre antes do deploy
 
-## Checklist rapido antes de deploy
+## Checklist Antes de Publicar
 
-- slogan correto
-- botoes levando para o destino certo
-- imagens carregando
+- links comerciais corretos
+- hero carregando com imagem de produto coerente
+- logo do cabecalho carregando
+- galeria abrindo no lightbox
 - horarios atualizados
-- nenhum texto quebrado
+- layout conferido em desktop e mobile
 - `npm run check` sem erro
 
-## Quando limpar arquivos
+## Quando Limpar Arquivos
 
 Se um arquivo:
 
-- nao esta referenciado em `index.html`
-- nao faz parte do fluxo atual
+- nao esta referenciado pela pagina
 - nao ajuda no deploy
-- nao ajuda na manutencao
+- nao participa da manutencao
+- e duplicado de outro asset
 
-entao ele deve ser removido ou consolidado.
+entao ele deve ser removido, consolidado ou arquivado em uma rodada propria de limpeza.

@@ -18,6 +18,7 @@ const mobileViewport = window.matchMedia("(max-width: 860px)");
 
 let scrollTicking = false;
 let sectionOffsets = [];
+const scrollLocks = new Set();
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -35,6 +36,20 @@ function updateHeaderState(scrollY) {
   header.classList.toggle("scrolled", scrollY > 20);
 }
 
+function syncBodyScrollLock() {
+  document.body.style.overflow = scrollLocks.size ? "hidden" : "";
+}
+
+function setBodyScrollLock(lockName, shouldLock) {
+  if (shouldLock) {
+    scrollLocks.add(lockName);
+  } else {
+    scrollLocks.delete(lockName);
+  }
+
+  syncBodyScrollLock();
+}
+
 function setMenuState(isOpen) {
   if (!header || !menuToggle) return;
 
@@ -43,19 +58,17 @@ function setMenuState(isOpen) {
   menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
 
   if (mobileViewport.matches) {
-    if (isOpen) {
-      document.body.classList.add("menu-open");
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.classList.remove("menu-open");
-      document.body.style.overflow = "";
-    }
+    document.body.classList.toggle("menu-open", isOpen);
+    setBodyScrollLock("menu", isOpen);
+    return;
   }
+
+  document.body.classList.remove("menu-open");
+  setBodyScrollLock("menu", false);
 }
 
 function closeMobileMenu() {
   setMenuState(false);
-  document.body.classList.remove("menu-open");
 }
 
 function updateActiveNav(scrollY) {
@@ -233,7 +246,7 @@ function openLightbox(imageSrc, imageAlt) {
   lightboxImage.alt = imageAlt;
   lightbox.classList.add("is-open");
   lightbox.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  setBodyScrollLock("lightbox", true);
 }
 
 function closeLightbox() {
@@ -241,7 +254,7 @@ function closeLightbox() {
 
   lightbox.classList.remove("is-open");
   lightbox.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+  setBodyScrollLock("lightbox", false);
 
   window.setTimeout(() => {
     lightboxImage.src = "";

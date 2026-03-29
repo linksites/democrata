@@ -180,7 +180,6 @@ button {
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
-.brand-wordmark,
 .footer-logo {
   width: 148px;
   filter: drop-shadow(0 0 20px rgba(245, 207, 119, 0.18));
@@ -858,6 +857,12 @@ section {
   padding: 24px;
 }
 
+.schedule-panel,
+.contact-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .menu-body,
 .menu-card-text {
   display: flex;
@@ -1074,6 +1079,27 @@ section {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.schedule-poster {
+  margin: 22px 0 0;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.26);
+}
+
+.schedule-poster img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.schedule-poster figcaption {
+  padding: 14px 16px 16px;
+  color: var(--muted-soft);
+  line-height: 1.6;
+}
+
 .contact-links {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1157,7 +1183,7 @@ section {
 }
 
 .site-footer {
-  padding: 34px 0 120px;
+  padding: 34px 0 48px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(7, 4, 5, 0.86);
 }
@@ -1179,7 +1205,7 @@ section {
   left: 50%;
   bottom: 18px;
   z-index: 45;
-  display: flex;
+  display: none;
   gap: 12px;
   padding: 10px;
   border-radius: 999px;
@@ -1422,11 +1448,6 @@ section {
     overflow: visible;
   }
 
-  .brand-wordmark {
-    flex: 0 1 110px;
-    max-width: 100%;
-  }
-
   .header-actions {
     gap: 6px;
   }
@@ -1472,7 +1493,12 @@ section {
   }
 
   .floating-dock {
+    display: flex;
     max-width: calc(100% - 24px);
+  }
+
+  .site-footer {
+    padding-bottom: 120px;
   }
 
   .site-header.menu-open .main-nav {
@@ -1566,7 +1592,6 @@ section {
     height: 44px;
   }
 
-  .brand-wordmark,
   .footer-logo {
     width: 92px;
   }
@@ -1709,10 +1734,6 @@ section {
 @media (max-width: 420px) {
   .nav-wrap {
     width: min(calc(100% - 10px), var(--container));
-  }
-
-  .brand-wordmark {
-    width: 78px;
   }
 
   .hero-brandmark {
